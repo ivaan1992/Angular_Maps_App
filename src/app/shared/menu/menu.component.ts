@@ -21,11 +21,11 @@ export class MenuComponent {
   menuItem: MenuSection[] = [
 
     {
-      name: 'FullScreen',
+      name: 'FullMap',
       route: '/maps/fullscreen'
     },
     {
-      name: 'Zoom Range',
+      name: 'Zoom Map',
       route: '/maps/zoom-range'
     },
     {
