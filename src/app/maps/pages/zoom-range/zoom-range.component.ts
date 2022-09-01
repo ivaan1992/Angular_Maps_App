@@ -11,6 +11,7 @@ export class ZoomRangeComponent implements AfterViewInit {
 
   @ViewChild('map') divMap!: ElementRef
   zoomRangerMap!: mapboxgl.Map;
+  zoomLevel: number = 10;
 
   constructor() { }
 
@@ -20,8 +21,18 @@ export class ZoomRangeComponent implements AfterViewInit {
       container: this.divMap.nativeElement,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [ -98.26989694777838, 19.050234835083913 ],
-      zoom: 18
+      zoom: this.zoomLevel
     });
+
+    this.zoomRangerMap.on('zoom', (e) => {
+      this.zoomLevel = this.zoomRangerMap.getZoom()
+    })
+
+    this.zoomRangerMap.on('zoomend', (e) => {
+      if( this.zoomRangerMap.getZoom() > 19 ) {
+        this.zoomRangerMap.zoomTo( 19 );
+      }
+    })
   }
 
   zoomOut() {
@@ -30,6 +41,10 @@ export class ZoomRangeComponent implements AfterViewInit {
 
   zoomIn() {
     this.zoomRangerMap.zoomIn();
+  }
+
+  zoomChange( value: string ) {
+    this.zoomRangerMap.zoomTo( Number(value) );
   }
 
 }
