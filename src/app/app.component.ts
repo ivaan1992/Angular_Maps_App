@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as mapboxgl from 'mapbox-gl'
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = '09-Maps_App';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+
+    (mapboxgl as any).accessToken = environment.mapboxToken;
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
+    });
+  }
+
 }
