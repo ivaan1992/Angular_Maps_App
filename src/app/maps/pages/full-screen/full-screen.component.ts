@@ -4,18 +4,7 @@ import * as mapboxgl from 'mapbox-gl'
 @Component({
   selector: 'app-full-screen',
   templateUrl: './full-screen.component.html',
-  styles: [
-    `
-      #map {
-        width: 100%;
-        height: 100%;
-      }
-
-    `
-
-
-
-  ]
+  styleUrls: [ './full-screen.component.scss']
 })
 export class FullScreenComponent implements OnInit {
 

@@ -10,12 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-
     (mapboxgl as any).accessToken = environment.mapboxToken;
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11'
-    });
   }
 
 }

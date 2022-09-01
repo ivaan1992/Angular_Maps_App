@@ -4,14 +4,7 @@ import * as mapboxgl from 'mapbox-gl';
 @Component({
   selector: 'app-zoom-range',
   templateUrl: './zoom-range.component.html',
-  styles: [
-    `
-      #map {
-        width: 100%;
-        height: 100%;
-      }
-
-    `
+  styleUrls: [ './zoom-range.component.scss'
   ]
 })
 export class ZoomRangeComponent implements OnInit {
